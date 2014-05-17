@@ -39,4 +39,9 @@ app.import({
 	production: 'vendor/font-awesome/css/font-awesome.min.css'
 });
 
+app.import({
+  development: "vendor/d3/d3.js",
+  production: "vendor/d3/d3.min.js"
+});
+
 module.exports = app.toTree();
