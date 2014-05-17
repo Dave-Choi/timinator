@@ -1,7 +1,4 @@
-/* global d3 */
-
-//export default
-var D3GraphComponent = Ember.Component.extend({
+export default Ember.Component.extend({
 	d3Container: null,
 	graph: null,
 	
@@ -63,5 +60,3 @@ var D3GraphComponent = Ember.Component.extend({
 			.attr("transform", "translate(" + this.get("marginLeft") + "," + this.get("marginTop") + ")");
 	}.observes("height", "width", "marginTop", "marginRight", "marginBottom", "marginLeft")
 });
-
-export default D3GraphComponent;
