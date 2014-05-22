@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-9">
+		<div class="chart">
+			{{stacked-area-graph
+				data=personalResults
+				yTickFormat="d" 
+				y2TickFormat="d"
+				xDomainLow=lowBound
+				xDomainHigh=highBound
+				disabled=disabled
+				setDisabled="setDisabled"
+			}}
+		</div>
+
+		<div class="context-brush">
+			{{stacked-area-brush
+				data=personalResults
+				setContext="setContext"
+			}}
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="chart">
+			{{relative-pie-chart
+		      own=pieData 
+		      ideal=globalBreakdown
+		    }}
+		</div>
+	</div>
+
+</div>
+
+
+<div>
+	{{!pie-chart
+		data=pieData
+		disabled=disabled
+		showLegend=false
+	}}
+	{{!pie-chart
+		data=globalBreakdown
+		disabled=disabled
+		showLegend=false
+	}}
+</div>
+
+{{#placeholder-panel}}
+	Suggestions for what to practice based on relative proportions.  e.g. If the global average for the first Roux block is 20% of total solve time, and your first block is 30%, suggest isolated practice of that block.
+{{/placeholder-panel}}

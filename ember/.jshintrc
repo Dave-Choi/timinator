@@ -9,7 +9,10 @@
     "DS": true,
     "$": true,
     "ENV": true,
-    "module": true
+    "module": true,
+    "console": true,
+    "d3": true,
+    "Pretender": true
   },
   "node" : false,
   "browser" : false,

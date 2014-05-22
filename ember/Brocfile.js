@@ -25,5 +25,34 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
+// Use pretender for API stubbing
+app.import({
+  development:'vendor/route-recognizer/dist/route-recognizer.js'
+});
+app.import({
+  development:'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'
+});
+app.import({
+  development:'vendor/pretender/pretender.js'
+});
+
+app.import({
+	development: 'vendor/bootstrap/dist/js/bootstrap.js',
+	production: 'vendor/bootstrap/dist/js/bootstrap.min.js'
+});
+app.import({
+	development: 'vendor/bootstrap/dist/css/bootstrap.css',
+	production: 'vendor/bootstrap/dist/css/bootstrap.min.css'
+});
+
+app.import({
+	development: 'vendor/font-awesome/css/font-awesome.css',
+	production: 'vendor/font-awesome/css/font-awesome.min.css'
+});
+
+app.import({
+  development: "vendor/d3/d3.js",
+  production: "vendor/d3/d3.min.js"
+});
 
 module.exports = app.toTree();
