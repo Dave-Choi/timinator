@@ -20,6 +20,10 @@
 		</div>
 	</div>
 	<div class="col-md-3">
+		<div>
+			<h3>Practice {{worstStep.label}}</h3>
+			<p>Your {{worstStep.label}} takes {{to-percent worstPercentDifference}} more of your time than the fastest {{solveMethod.name}} users.</p>
+		</div>
 		<div class="chart">
 			{{relative-pie-chart
 		      own=pieData 

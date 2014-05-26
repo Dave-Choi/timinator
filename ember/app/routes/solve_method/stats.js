@@ -6,6 +6,7 @@ export default Ember.Route.extend({
 		var globalBreakdown = Ember.$.getJSON("api/methodResults/global/breakdown/" + solveMethodId);
 
 		return Ember.RSVP.hash({
+			solveMethod: this.modelFor("solveMethod"),
 			personalResults: personalResults,
 			globalBreakdown: globalBreakdown
 		});

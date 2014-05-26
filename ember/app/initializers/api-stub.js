@@ -32,19 +32,19 @@ function mockGlobalMethodBreakdown(){
 	return [
 		{
 			"label": "F2B-1",
-			"value": 2
+			"value": 0.2
 		},
 		{
 			"label": "F2B-2",
-			"value": 3
+			"value": 0.3
 		},
 		{
 			"label": "CMLL",
-			"value": 2
+			"value": 0.2
 		},
 		{
 			"label": "L6E",
-			"value": 2
+			"value": 0.2
 		}
 	];
 }
