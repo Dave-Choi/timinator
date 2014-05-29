@@ -105,6 +105,7 @@ var RelativePieChart = Ember.Component.extend({
 		var color = d3.scale.category20();
 			
 		var innerArc = d3.svg.arc()
+			.innerRadius(0) // I believe this is the default, but it's explicitly required for arc.centroid() to work correctly
 			.outerRadius(innerRadius);
 		this.set("innerArc", innerArc);
 
@@ -148,16 +149,23 @@ var RelativePieChart = Ember.Component.extend({
 				var startAngle = d.startAngle;
 				var outerStartAngle = d3.select(outerArcs[0][i]).datum().startAngle;
 				var angleDiff = startAngle - outerStartAngle;
+				var angleDiffInDegrees = RelativePieChart.rad2Deg(angleDiff);
 
 				outerDonut.selectAll(".arc").transition()
 					.duration(500)
-					.attr("transform", "rotate(" + RelativePieChart.rad2Deg(angleDiff) + ")")
+					.attr("transform", "rotate(" + angleDiffInDegrees + ")")
 					.ease();
 			}.bind(this));
 	
 		innerArcs.append("path")
 			.attr("d", innerArc)
 			.style("fill", function(d, i){ return color(i); });
+
+		innerArcs.append("text")
+			.attr("transform", function(d) { return "translate(" + innerArc.centroid(d) + ")"; })
+			.attr("dy", ".35em")
+			.style("text-anchor", "middle")
+			.text(function(d) { return d.data.value; });
 		
 		var outerArcs = outerDonut.selectAll(".arc")
 			.data(pie(ownData), function(d){
@@ -174,6 +182,8 @@ var RelativePieChart = Ember.Component.extend({
 			.attr("d", outerArc)
 			.style("fill", function(d, i){ return color(i); });
 
+		outerArcs.append("text");
+
 	}.on("didInsertElement"),
 
 	updateGraph: function(){
@@ -187,6 +197,15 @@ var RelativePieChart = Ember.Component.extend({
 				return Ember.get(d, "data.label");
 			})
 			.attr("d", outerArc);
+
+		outerDonut.selectAll("text")
+			.data(pie(own), function(d){
+				return Ember.get(d, "data.label");
+			})
+			.attr("transform", function(d, i){ return "translate(" + outerArc.centroid(d, i) + ")"; })
+			.attr("dy", ".35em")
+			.style("text-anchor", "middle")
+			.text(function(d){ return d.data.value.toFixed(2); });
 
 	}.observes("own", "ideal")
 });
