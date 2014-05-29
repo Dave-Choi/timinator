@@ -67,7 +67,10 @@ var RelativePieChart = Ember.Component.extend({
 		});
 		
 		var i, len = diffs.length;
-		max -= min; // Diffs will be normalized by subtracting the min, so the max must be adjusted accordingly to have division normalize the max to 1
+		max -= min; /* 
+			Diffs will be normalized by subtracting the min, 
+			so the max must be adjusted accordingly to have division normalize the max to 1
+		*/
 		
 		for(i=0; i<len; i++){
 			var diff = diffs[i];
@@ -89,7 +92,6 @@ var RelativePieChart = Ember.Component.extend({
 
 		var container = this.$()[0];
 		var containerCapacity = Math.min(container.clientHeight, container.clientWidth);
-		console.log("containerCapacity", containerCapacity);
 
 		var width = this.get('width') || containerCapacity;
 		var height = this.get('height') || containerCapacity;
@@ -109,7 +111,10 @@ var RelativePieChart = Ember.Component.extend({
 		var outerArc = d3.svg.arc()
 			.innerRadius(innerRadius)
 			.outerRadius(function(d, i){
-				var priority = this.get("priorities")[i];
+				var priority = this.get("priorities")[i]; /* 
+					binding `this` and `this.get("priorities")` is used, 
+					instead of just `priorities[i]`, because the updated value is needed. 
+				*/
 				return innerRadius + minDonutRadius + priority * outerRadiusRemainder; 
 			}.bind(this));
 		this.set("outerArc", outerArc);
