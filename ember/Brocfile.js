@@ -5,6 +5,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   name: require('./package.json').name,
 
+  minifyCSS: {
+    enabled: true,
+    options: {}
+  },
+
   getEnvJSON: require('./config/environment')
 });
 
@@ -23,17 +28,6 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
     'raw',
     'request',
   ]
-});
-
-// Use pretender for API stubbing
-app.import({
-  development:'vendor/route-recognizer/dist/route-recognizer.js'
-});
-app.import({
-  development:'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'
-});
-app.import({
-  development:'vendor/pretender/pretender.js'
 });
 
 app.import({
