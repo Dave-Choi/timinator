@@ -4,6 +4,8 @@
     "window": true,
     "location": true,
     "setTimeout": true,
+    "requestAnimationFrame": true,
+    "cancelAnimationFrame": true,
     "Ember": true,
     "Em": true,
     "DS": true,
