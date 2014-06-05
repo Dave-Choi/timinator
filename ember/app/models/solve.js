@@ -1,6 +1,6 @@
 Ember.Inflector.inflector.irregular("solve", "solves");
 
-export DS.Model.extend({
+export default DS.Model.extend({
 	scramble: DS.attr("string"),
 
 	stepResults: DS.hasMany("stepResult", { async: true }),
