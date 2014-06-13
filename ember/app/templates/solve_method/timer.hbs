@@ -1,19 +1,35 @@
-<h4>Timer placeholder</h4>
+<h4>{{solve.scramble}}</h4>
 
-{{#placeholder-panel}}
-	Current step indicator
-{{/placeholder-panel}}
+<div>
+	{{#if solveMethod.isMultiStep}}
+		{{status-pills pills=solveMethodStepNames currentIndex=solve.currentStepIndex}}
+		<h3>
+			{{solve.currentStep.name}}: {{time}}
+		</h3>
+	{{/if}}
+	<h2>Total: {{totalTime}}</h2>
+</div>
+
+<button {{action "step"}}>Step</button>
+<button {{action "stop"}}>Stop</button>
+
+{{#each solve.stepResults}}
+	{{step.name}}: {{time}}
+{{/each}}
+
 
 {{#placeholder-panel}}
 	Start/stop controls
 {{/placeholder-panel}}
 
 {{#placeholder-panel}}
-	Time display
-{{/placeholder-panel}}
-
-{{#placeholder-panel}}
 	Tabular results (use Ember Table)
+	{{#each solves}}
+		{{scramble}}
+		{{#each stepResults}}
+			{{time}}
+		{{/each}}
+	{{/each}}
 {{/placeholder-panel}}
 
 {{#placeholder-panel}}
