@@ -1,46 +1,11 @@
-var SolveMethod = DS.Model.extend({
+export default DS.Model.extend({
 	name: DS.attr("string"),
 	steps: DS.hasMany("step", {async: true}),
 	puzzle: DS.belongsTo("puzzle"),
 
 	isMultiStep: function(){
-		return this.get("steps.length") > 1;
+		var ret = this.get("steps.length") > 1;
+		console.log(ret);
+		return ret;
 	}.property("steps.length")
 });
-
-SolveMethod.reopenClass({
-	FIXTURES: [
-		{
-			"id": 1,
-			"puzzle": 1,
-			"name": "No Breakdown",
-			"steps": [
-				9 // Full Solve
-			]
-		},
-		{
-			"id": 2,
-			"puzzle": 1,
-			"name": "CFOP",
-			"steps": [
-				1,	// Cross
-				2,	// F2L
-				3,	// OLL
-				4	// PLL
-			]
-		},
-		{
-			"id": 3,
-			"puzzle": 1,
-			"name": "Roux",
-			"steps": [
-				5,	//	F2B-1
-				6,	//	F2B-2
-				7,	//	CMLL
-				8	// L6E
-			]
-		}
-	]
-});
-
-export default SolveMethod;
