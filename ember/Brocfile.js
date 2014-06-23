@@ -49,4 +49,6 @@ app.import({
   production: "vendor/d3/d3.min.js"
 });
 
+app.import("vendor/ember-shortcuts/ember-shortcuts.js");
+
 module.exports = app.toTree();
