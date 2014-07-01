@@ -28,8 +28,10 @@ export default Ember.ObjectController.extend({
 			time: time
 		});
 
-		console.log(stepResult);
+		this.get("stepResults").then(function(results){
+			results.addObject(stepResult);
+		});
+	},
 
-		this.get("stepResults").addObject(stepResult);
 	}
 });
