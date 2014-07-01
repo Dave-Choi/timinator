@@ -19,6 +19,6 @@
     "font-awesome": "~4.0.3",
 
     "d3": "~3.4.6",
-    "ember-shortcuts": "~0.0.2"
+    "ember-shortcuts": "Dave-Choi/ember-shortcuts#master"
   }
 }
