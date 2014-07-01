@@ -1,0 +1,11 @@
+<tr>
+	<td class="controls">
+		<button {{action "delete"}}>Delete</button>
+	</td>
+	<td>
+		{{ms-to-s totalTime}}
+	</td>
+	{{#each stepResults}}
+		<td>{{ms-to-s time}}</td>
+	{{/each}}
+</tr>

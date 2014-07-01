@@ -2,50 +2,44 @@
 
 <div>
 	{{#if solveMethod.isMultiStep}}
-		{{status-pills pills=solveMethodStepNames currentIndex=solve.currentStepIndex}}
+		{{status-pills
+			pills = solveMethodStepNames 
+			currentIndex = solve.currentStepIndex
+		}}
 	{{/if}}
-	<h2>{{#if solveMethod.isMultiStep}}<small class="text-primary">{{ms-to-s time}}</small> / {{/if}}{{ms-to-s totalTime}}</h2>
+	<h2>
+		{{#if solveMethod.isMultiStep}}
+			<small class="text-primary">{{ms-to-s time}}</small> / 
+		{{/if}}
+		{{ms-to-s totalTime}}
+	</h2>
 </div>
 
-<button class="btn btn-primary" {{action "step"}}>Step</button>
-<button class="btn btn-warning" {{action "stop"}}>Stop</button>
+<button class="btn btn-sm btn-primary" {{action "step"}}>
+	{{#if isTiming}}
+		Step
+	{{else}}
+		Start
+	{{/if}}
+</button>
+<button class="btn btn-sm btn-warning" {{action "stop"}}>Stop</button>
 
-{{#each solve.stepResults}}
-	{{step.name}}: {{ms-to-s time}}
-{{/each}}
-
-
-{{#placeholder-panel}}
-	Start/stop controls
-{{/placeholder-panel}}
-
-{{#placeholder-panel}}
-	Tabular results (use Ember Table)
-	<table class="table table-striped table-hover">
-		<thead>
-			<tr>
-				<th> </th>
-				<th>Total</th>
-				{{#if solveMethod.isMultiStep}}
-					{{#each solveMethod.steps}}
-						<th>{{name}}</th>
-					{{/each}}
-				{{/if}}
-			</tr>
-		</thead>
-		{{#each solves}}
-			<tr>
-				<td class="controls"></td>
-				<td>
-					{{ms-to-s totalTime}}
-				</td>
-				{{#each stepResults}}
-					<td>{{ms-to-s time}}</td>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Total ({{ms-to-s solves.totalMean}})</th>
+			{{#if solveMethod.isMultiStep}}
+				{{#each solveMethod.steps}}
+					<th>{{name}}</th>
 				{{/each}}
-			</tr>
-		{{/each}}
-	</table>
-{{/placeholder-panel}}
+			{{/if}}
+		</tr>
+	</thead>
+	{{#each solves}}
+		{{render "solve" this}}
+	{{/each}}
+</table>
 
 {{#placeholder-panel}}
 	Stacked area graph
