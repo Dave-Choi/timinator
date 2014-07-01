@@ -12,5 +12,6 @@ export default Ember.Component.extend({
 		this.$("li")
 			.removeClass("active")
 			.eq(index).addClass("active");
-	}.observes("currentIndex", "pills.@each").on("didInsertElement")
+	}.observes("currentIndex", "pills.@each")
+	.on("didInsertElement")
 });
