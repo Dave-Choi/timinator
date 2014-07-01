@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
 			});
 		});
 
-		this.get("solves").pushObject(oldSolve); // Probably move this into full save OK handler
+		this.get("solves").unshiftObject(oldSolve); // Probably move this into full save OK handler
 
 		var newSolve = this.newSolve();
 		this.get("solve").set("model", newSolve);
