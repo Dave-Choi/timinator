@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.get('/api/methodResults/:id', function(req, res) {
+  app.get('/api/method_results/:id', function(req, res) {
     var steps = ["F2B-1", "F2B-2", "CMLL", "L6E"];
 	var results = steps.map(function(item, index){
 		var formatted = {
@@ -19,7 +19,7 @@ module.exports = function(app) {
 	res.send(results);
   });
 
-  app.get('/api/methodResults/global/breakdown/:id', function(req, res){
+  app.get('/api/method_results/global/breakdown/:id', function(req, res){
 		res.send([
 			{
 				"label": "F2B-1",
