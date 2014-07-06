@@ -1,3 +1,6 @@
+import Ember from 'ember';
+var Em = Ember;
+
 export default Ember.Route.extend({
 	model: function(){
 		return [

@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 /*
 	This mixin is specifically for the D3GraphComponent family of objects.
 

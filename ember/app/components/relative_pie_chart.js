@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 /*
 	From: http://jsbin.com/sowep/13/edit
 

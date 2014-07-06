@@ -9,16 +9,18 @@
 
     {{BASE_TAG}}
 
-    <link rel="stylesheet" href="assets/timinator.css">
     <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/timinator.css">
   </head>
   <body>
     <script>
-      window.ENV = {{ENV}};
+      window.TiminatorENV = {{ENV}};
+      window.EmberENV = window.TiminatorENV.EmberENV;
     </script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/timinator.js"></script>
     <script>
-      window.Timinator = require('timinator/app')['default'].create(ENV.APP);
+      window.Timinator = require('timinator/app')['default'].create(TiminatorENV.APP);
     </script>
   </body>
 </html>

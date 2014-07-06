@@ -1,4 +1,5 @@
 /* global d3 */
+import Ember from 'ember';
 
 import D3GraphComponent from 'timinator/components/d3_graph';
 
