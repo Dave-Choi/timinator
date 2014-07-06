@@ -5,7 +5,7 @@
     "setTimeout": true,
     "requestAnimationFrame": true,
     "cancelAnimationFrame": true,
-    "d3": true
+    "d3": true,
     "TiminatorENV": true
   },
   "browser" : true,
