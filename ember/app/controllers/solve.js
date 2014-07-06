@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.ObjectController.extend({
 	currentStepIndex: 0,
 	numSteps: Ember.computed.alias("solveMethod.steps.length"),

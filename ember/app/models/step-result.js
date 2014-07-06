@@ -1,3 +1,5 @@
+import DS from 'ember-data';
+
 export default DS.Model.extend({
 	solve: DS.belongsTo("solve"),
 	step: DS.belongsTo("step"),

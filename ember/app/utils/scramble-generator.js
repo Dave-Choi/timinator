@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 var ScrambleGenerator = Ember.Object.extend();
 
 ScrambleGenerator.reopenClass({

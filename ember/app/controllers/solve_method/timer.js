@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import ScrambleGenerator from "timinator/utils/scramble-generator";
 
 export default Ember.Controller.extend({

@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 /*
 	Displays a list of Bootstrap nav pills, and sets the one
 	that corresponds to currentIndex to class ".active"

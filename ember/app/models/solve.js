@@ -1,3 +1,6 @@
+import Ember from 'ember';
+import DS from 'ember-data';
+
 Ember.Inflector.inflector.irregular("solve", "solves");
 
 export default DS.Model.extend({

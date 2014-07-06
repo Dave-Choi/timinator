@@ -1,3 +1,6 @@
+import Ember from 'ember';
+var Em = Ember;
+
 export default Ember.ArrayController.extend({
 	valuesLength: function(){
 		return this.get("firstObject.values.length");

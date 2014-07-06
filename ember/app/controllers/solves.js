@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.ArrayController.extend({
 	totalTimes: Ember.computed.mapBy("model", "totalTime"),
 	totalTime: Ember.computed.sum("totalTimes"),
