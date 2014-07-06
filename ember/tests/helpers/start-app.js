@@ -2,6 +2,7 @@
 
 var Application = require('timinator/app')['default'];
 var Router = require('timinator/router')['default'];
+import Ember from 'ember';
 
 export default function startApp(attrs) {
   var App;
